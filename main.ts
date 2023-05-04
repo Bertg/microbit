@@ -171,7 +171,11 @@ player = game.createSprite(0, 2)
 basic.pause(2000)
 basic.forever(function () {
     basic.pause(500)
-    enemy = game.createSprite(5, randint(0, 4))
+    if (game.score() == 0) {
+        enemy = game.createSprite(5, 2)
+    } else {
+        enemy = game.createSprite(5, randint(0, 4))
+    }
     for (let index = 0; index < 5; index++) {
         basic.pause(300 - Math.min(game.score(), 25) * 10)
         enemy.change(LedSpriteProperty.X, -1)
